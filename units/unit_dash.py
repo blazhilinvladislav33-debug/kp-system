@@ -55,9 +55,19 @@ def show_page():
             opacity: 0 !important;
         }
         
-        /* Приховування верхньої системної плашки */
+        /* Робимо хедер прозорим, але залишаємо кнопку меню доступною */
         header[data-testid="stHeader"] {
-            display: none !important;
+            background-color: transparent !important;
+            height: 0 !important;
+            overflow: visible !important;
+        }
+        /* Забезпечуємо видимість кнопки меню, навіть якщо хедер приховано */
+        [data-testid="stSidebar"] + div button[kind="secondary"] {
+            display: block !important;
+            position: fixed !important;
+            top: 10px !important;
+            left: 10px !important;
+            z-index: 999999 !important;
         }
 
         /* --- Стилі компактності для телефонів --- */
